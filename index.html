@@ -109,7 +109,7 @@ h2.ab{margin:0;font-size:27px;line-height:1.12;letter-spacing:-.01em}
 .sv:has(input:checked) .pm::before{content:"–"}
 .sd{display:none}
 .sd p{margin:0;padding:2px 28px 12px;font-size:13px;line-height:1.55;color:var(--sub);max-width:none}
-.sv:has(input:checked) .sd{display:block}@media (hover:hover) and (pointer:fine){.sv:hover .sd{display:block}}
+.sv:has(input:checked) .sd{display:block}@media (hover:hover) and (pointer:fine){.sv:not(.sv-x):hover .sd{display:block}}
 .price{margin:12px 0 0;font-size:18px;line-height:1.3;font-style:italic;color:var(--sub);max-width:36ch}
 
 .heroct{display:flex;gap:14px 24px;align-items:center;flex-wrap:wrap;margin-top:8px}
@@ -358,5 +358,6 @@ var last="1";document.querySelectorAll('input[name="tfstep"]').forEach(function(
 f.addEventListener("input",function(e){var p=e.target.closest(".tfp");if(p&&p.querySelector(".tferr")&&!rule(p.dataset.s))clear(p)});
 f.addEventListener("change",function(e){var p=e.target.closest(".tfp");if(p&&p.querySelector(".tferr")&&!rule(p.dataset.s))clear(p)});
 })();</script>
+<script>document.querySelectorAll(".sv").forEach(function(v){var i=v.querySelector("input");if(!i)return;i.addEventListener("change",function(){v.classList.toggle("sv-x",!i.checked)});v.addEventListener("mouseleave",function(){v.classList.remove("sv-x")})});</script>
 </body>
 </html>

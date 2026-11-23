@@ -2,7 +2,7 @@
 <html lang="en-AU">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#0A101D">
 <meta name="robots" content="noindex,nofollow,noarchive">
 <title>Selected work — field note* studios</title>
@@ -350,6 +350,11 @@ footer .wrap{flex-direction:column;gap:10px}
 /* ---- real-phone fixes ---- */
 html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 .topbar::before{content:"";position:absolute;left:0;right:0;bottom:100%;height:120px;background:inherit;-webkit-backdrop-filter:inherit;backdrop-filter:inherit}
+
+@media (max-width:760px){
+  .topbar{background:#0A101D;padding-top:env(safe-area-inset-top);backdrop-filter:none;-webkit-backdrop-filter:none}
+  .topbar::before{background:#0A101D}
+}
 </style>
 </head>
 <body>

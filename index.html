@@ -352,6 +352,9 @@ function check(p){var r=rule(p.dataset.s);if(r){show(p,r);return false}clear(p);
 document.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest(".tfp .tfnav .tfbtn");if(!b||!f.contains(b))return;var p=b.closest(".tfp");
  if(b.hasAttribute("data-tfsubmit")){var ps=f.querySelectorAll(".tfp[data-s]");for(var k=0;k<ps.length;k++){var r=rule(ps[k].dataset.s);if(r){e.preventDefault();e.stopImmediatePropagation();var go=document.getElementById("tf-s"+ps[k].dataset.s);if(go)go.checked=true;show(ps[k],r);return}}return}
  if(!check(p)){e.preventDefault();e.stopImmediatePropagation()}},true);
+var last="1";document.querySelectorAll('input[name="tfstep"]').forEach(function(r){r.addEventListener("change",function(){if(!r.checked)return;var to=r.id==="tf-done"?7:+r.id.replace("tf-s","");var from=+last;
+ if(to>from){for(var n=from;n<to;n++){var pn=f.querySelector('.tfp[data-s="'+n+'"]');var rr=rule(String(n));if(rr){var back=document.getElementById("tf-s"+n);if(back)back.checked=true;last=String(n);show(pn,rr);return}}}
+ last=to===7?"6":String(to)})});
 f.addEventListener("input",function(e){var p=e.target.closest(".tfp");if(p&&p.querySelector(".tferr")&&!rule(p.dataset.s))clear(p)});
 f.addEventListener("change",function(e){var p=e.target.closest(".tfp");if(p&&p.querySelector(".tferr")&&!rule(p.dataset.s))clear(p)});
 })();</script>

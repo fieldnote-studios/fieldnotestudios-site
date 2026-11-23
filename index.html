@@ -270,6 +270,13 @@ h2.ab{margin:0;font-size:27px;line-height:1.12;letter-spacing:-.01em}
   .pg>.topo-w{top:calc(84px + 35px);width:1400px}
   .mob-cta{display:inline-flex;position:absolute;top:20px;right:20px;z-index:4;padding:10px 14px;font-size:11px}
 }
+/* mobile: Get in touch sits under the hero text, even spacing */
+@container (max-width:860px){
+  .mob-cta{display:none!important}
+  .a-tl{gap:22px}
+  .heroct{display:flex;margin-top:0}
+  .heroct .ul{display:none}
+}
 </style>
 
 <style>

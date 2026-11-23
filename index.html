@@ -280,6 +280,10 @@ h2.ab{margin:0;font-size:27px;line-height:1.12;letter-spacing:-.01em}
   .heroct{display:flex;margin-top:0}
   .heroct .ul{display:none}
 }
+.tff:has(.tferr){flex-wrap:wrap}.tferr{display:block;flex:0 0 100%;width:100%;text-align:center;margin-top:14px;font-size:14px;line-height:1.4;color:#F2A99D;letter-spacing:.01em}
+.tff input[aria-invalid="true"],.tff textarea[aria-invalid="true"]{border-bottom-color:#F2A99D!important}
+.tfp.shake .tff{animation:tfshake .32s ease}
+@keyframes tfshake{0%,100%{transform:none}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
 </style>
 
 <style>
@@ -330,5 +334,25 @@ document.addEventListener('keydown',e=>{
 });
 })();</script>
 <script>(function(){function o(){if(location.hash==="#contact"){var r=document.getElementById("st-f");if(r)r.checked=true}}o();window.addEventListener("hashchange",o)})();</script>
+<script>(function(){
+var f=document.getElementById("tf-form");if(!f)return;
+var EM=/^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/;
+function rule(n){
+ if(n==="1"){var i=f.querySelector('[name="Name"]');return i.value.trim().length<2?[i,"Please enter your name."]:null}
+ if(n==="2"){var i=f.querySelector('[name="email"]');var v=i.value.trim();if(!v)return[i,"Please enter your email."];return EM.test(v)?null:[i,"That email doesn\u2019t look quite right."]}
+ if(n==="3"){return f.querySelector('[name="Preferred payment model"]:checked')?null:[f.querySelector('[name="Preferred payment model"]'),"Please choose one option."]}
+ if(n==="5"){return f.querySelector('[name="Services"]:checked')?null:[f.querySelector('[name="Services"]'),"Please choose at least one service."]}
+ return null}
+function clear(p){var e=p.querySelector(".tferr");if(e)e.remove();p.querySelectorAll("[aria-invalid]").forEach(function(x){x.removeAttribute("aria-invalid")})}
+function show(p,r){clear(p);var t=p.querySelector(".tff");var m=document.createElement("span");m.className="tferr";m.setAttribute("role","alert");m.textContent=r[1];t.appendChild(m);
+ if(r[0]&&(r[0].type==="text"||r[0].type==="email")){r[0].setAttribute("aria-invalid","true");r[0].focus()}
+ p.classList.remove("shake");void p.offsetWidth;p.classList.add("shake")}
+function check(p){var r=rule(p.dataset.s);if(r){show(p,r);return false}clear(p);return true}
+document.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest(".tfp .tfnav .tfbtn");if(!b||!f.contains(b))return;var p=b.closest(".tfp");
+ if(b.hasAttribute("data-tfsubmit")){var ps=f.querySelectorAll(".tfp[data-s]");for(var k=0;k<ps.length;k++){var r=rule(ps[k].dataset.s);if(r){e.preventDefault();e.stopImmediatePropagation();var go=document.getElementById("tf-s"+ps[k].dataset.s);if(go)go.checked=true;show(ps[k],r);return}}return}
+ if(!check(p)){e.preventDefault();e.stopImmediatePropagation()}},true);
+f.addEventListener("input",function(e){var p=e.target.closest(".tfp");if(p&&p.querySelector(".tferr")&&!rule(p.dataset.s))clear(p)});
+f.addEventListener("change",function(e){var p=e.target.closest(".tfp");if(p&&p.querySelector(".tferr")&&!rule(p.dataset.s))clear(p)});
+})();</script>
 </body>
 </html>

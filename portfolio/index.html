@@ -357,12 +357,13 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 .topbar::before{content:"";position:absolute;left:0;right:0;bottom:100%;height:120px;background:inherit;-webkit-backdrop-filter:inherit;backdrop-filter:inherit}
 @media (max-width:760px){.topbar{background:#0A101D;padding-top:env(safe-area-inset-top);backdrop-filter:none;-webkit-backdrop-filter:none}.topbar::before{background:#0A101D}}
 @media (max-width:760px){.topbar{position:fixed;top:0;left:0;right:0}body{padding-top:calc(73px + env(safe-area-inset-top))}[id]{scroll-margin-top:90px}html{background:#0A101D}}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}footer .flinks{display:flex;gap:18px}footer .flinks a{color:inherit;text-decoration:none;border-bottom:1px solid var(--rule)}
 </style>
 </head>
 <body>
 <div class="v5-root">
 <header class="topbar"><div class="wrap"><a class="brand" href="/" aria-label="field note* studios, home"><img src="../assets/logo.svg" alt="" width="108" height="36"><span class="fnm" aria-hidden="true">fn<sup>*</sup></span></a>
-<nav class="navr"><a class="cta" href="/#contact">Start a project <span aria-hidden="true">→</span></a></nav></div></header>
+<nav class="navr"><a class="cta" href="/contact">Start a project <span aria-hidden="true">→</span></a></nav></div></header>
 <main>
 <section class="intro"><img class="topo-w" src="../assets/topo.svg" alt="" aria-hidden="true"><div class="wm" aria-hidden="true">*</div><div class="wrap">
 <div class="lb">field note* studios · Sydney</div>
@@ -432,11 +433,12 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 <section class="end"><div class="wrap">
 <h2 class="serif" style="font-size:64px">Thank you.</h2>
 <p>We'd love to hear more about your project.</p>
-<div class="endrow"><a class="serif ul" href="mailto:hello@fieldnotestudios.com" style="font-size:21px;font-style:italic">hello@fieldnotestudios.com</a><a class="cta" href="/#contact">Start a project <span aria-hidden="true">→</span></a></div>
+<div class="endrow"><a class="serif ul" href="mailto:hello@fieldnotestudios.com" style="font-size:21px;font-style:italic">hello@fieldnotestudios.com</a><a class="cta" href="/contact">Start a project <span aria-hidden="true">→</span></a></div>
 </div></section>
 </main>
-<footer><div class="wrap"><span class="lb">© 2026 field note* studios · Sydney, Australia</span></div></footer>
+<footer><div class="wrap"><span class="lb">© 2026 field note* studios · Sydney, Australia</span><span class="lb flinks"><a href="/privacy/">Privacy</a><a href="#" data-cookie-settings>Cookie settings</a></span></div></footer>
 </div>
 <script>(function(){if(CSS.supports('zoom','calc(100cqw / 1100px)'))return;var w=document.querySelector('.case .wrap');function z(){var on=matchMedia('(max-width:760px)').matches,s=getComputedStyle(w),c=w.clientWidth-parseFloat(s.paddingLeft)-parseFloat(s.paddingRight);document.querySelectorAll('.mos').forEach(function(m){m.style.zoom=on?Math.min(1,c/1100).toFixed(4):''})}z();addEventListener('resize',z)})();</script>
+<script src="../assets/consent.js" defer></script>
 </body>
 </html>
